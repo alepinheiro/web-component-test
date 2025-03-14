@@ -1,12 +1,11 @@
 <template>
-  <div
+  <aside
+    role="alert"
     :style="{
-      position: 'fixed',
-      bottom: 0,
-      left: 0,
-      right: 0,
-      'background-color': '#0f28a0',
-      height: '4em',
+      'background-color': '#d9d9d9',
+      transition: 'height 0.3s ease-in-out',
+      overflow: 'hidden',
+      height: isOpen ? '4em' : '0',
     }"
   >
     <div
@@ -21,10 +20,19 @@
         padding: '0 1em',
       }"
     >
-      <h2>TheBanner</h2>
-      <button>x</button>
+      <h2 :style="{ 'font-size': '22px' }">
+        <b>ATENÇÃO:</b>
+        A Bext não solicita pagamento <br />
+        antecipado para aprovações de crédito!
+      </h2>
+      <button @click="isOpen = !isOpen" :style="{ 'background-color': '#d9d9d9', border: 'none' }">
+        x
+      </button>
     </div>
-  </div>
+  </aside>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue'
+const isOpen = ref(true)
+</script>
