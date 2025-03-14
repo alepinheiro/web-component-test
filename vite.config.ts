@@ -16,6 +16,9 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  define: {
+    'process.env.NODE_ENV': JSON.stringify(import.meta.env.MODE),
+  },
   build: {
     lib: {
       entry: 'src/webComponent.ts',
@@ -25,6 +28,6 @@ export default defineConfig({
     },
     sourcemap: true,
     target: 'esnext',
-    minify: true,
+    minify: false,
   },
 })
