@@ -17,7 +17,7 @@ export default defineConfig({
     },
   },
   define: {
-    'process.env.NODE_ENV': JSON.stringify(import.meta.env.MODE),
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
   },
   build: {
     lib: {
@@ -28,6 +28,6 @@ export default defineConfig({
     },
     sourcemap: true,
     target: 'esnext',
-    minify: false,
+    minify: true,
   },
 })
