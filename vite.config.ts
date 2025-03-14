@@ -2,7 +2,6 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
-import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -10,12 +9,22 @@ export default defineConfig({
     vue({
       customElement: true,
     }),
-    tailwindcss(),
     vueDevTools(),
   ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
+  },
+  build: {
+    lib: {
+      entry: 'src/webComponent.ts',
+      formats: ['es', 'cjs'],
+      name: 'no-payment-banner',
+      fileName: (format) => (format === 'es' ? 'index.js' : 'index.cjs'),
+    },
+    sourcemap: true,
+    target: 'esnext',
+    minify: true,
   },
 })
