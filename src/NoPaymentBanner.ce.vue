@@ -27,11 +27,23 @@
         <br :style="{ display: windowWidth > 768 ? 'block' : 'none' }" />
         antecipado para aprovações de crédito!
       </h2>
-      <button @click="isOpen = !isOpen" :style="{ 'background-color': '#d9d9d9', border: 'none' }">
+      <button
+        title="Fechar"
+        @click="isOpen = !isOpen"
+        :style="{
+          padding: '0',
+          width: '1.3em',
+          border: 'none',
+          display: 'flex',
+          height: '1.3em',
+          cursor: 'pointer',
+          backgroundColor: '#d9d9d9',
+        }"
+      >
         <svg
           :style="{
-            width: '1.3em',
-            height: '1.3em',
+            width: '100%',
+            height: '100%',
           }"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 384 512"
